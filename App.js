@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>App lùa gà</Text>
+      <Text style={styles.header}>Điểm danh để nhận Tuan Coin</Text>
       <Text style={styles.coin}>{coin}TC</Text>
       <Button
         onPress={() => setCoin(coin + 1)}
@@ -24,15 +24,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#d8bfd8',
     alignItems: 'center',
     justifyContent: 'center',
   },
   header: {
+    alignContent: 'flex-start',
     fontSize: 20,
     fontWeight: 'bold',
   },
   coin: {
+    color: "#841584",
     fontSize: 60,
     fontWeight: 'bold',
   },
