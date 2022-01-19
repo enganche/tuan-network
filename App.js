@@ -1,8 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Text, View, Button, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default function App() {
+function HomeScreen() {
   const [coin, setCoin] = useState(0);
 
   return (
@@ -16,15 +17,40 @@ export default function App() {
         style={styles.button}
         accessibilityLabel="Điểm danh hàng ngày"
       />
-      <StatusBar style="auto" />
     </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d8bfd8',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -39,6 +65,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   button: {
-
+    
   },
 });
