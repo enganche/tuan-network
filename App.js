@@ -1,41 +1,46 @@
 import React, { useState } from 'react';
-import { Text, View, Button, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-function HomeScreen() {
-  const [coin, setCoin] = useState(0);
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Điểm danh để nhận Tuan Coin</Text>
-      <Text style={styles.coin}>{coin}TC</Text>
-      <Button
-        onPress={() => setCoin(coin + 1)}
-        title="Điểm danh"
-        color="#841584"
-        style={styles.button}
-        accessibilityLabel="Điểm danh hàng ngày"
-      />
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import HomeScreen from './components/HomeScreen';
+import ProfileScreen from './components/ProfileScreen';
+import SettingsScreen from './components/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen 
+        name="Home" 
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="home" color="#841584" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile" 
+        component={ProfileScreen} 
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="profile" color="#841584" />
+          ),
+        }}
+        />
+      <Tab.Screen 
+        name="Settings" 
+        component={SettingsScreen} 
+        options={{
+          tabBarLabel: 'Settings',
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="settings" color="#841584" />
+          ),
+        }}
+        />
     </Tab.Navigator>
   );
 }
@@ -47,24 +52,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    alignContent: 'flex-start',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  coin: {
-    color: "#841584",
-    fontSize: 60,
-    fontWeight: 'bold',
-  },
-  button: {
-    
-  },
-});
