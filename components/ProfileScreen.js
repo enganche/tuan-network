@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, View } from 'react-native';
 
-export default function ProfileScreen() {
+export default function ProfileScreen(props) {
     return(
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
             <Text>Tài khoản</Text>
-            <Text>Nguyen Anh Tuan</Text>
-            <Text>Số coin: 0</Text>
+            <Text>{props.name}</Text>
+            <Text>Số coin: {props.coins}</Text>
         </View>
     );
 }

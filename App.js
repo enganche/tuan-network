@@ -23,11 +23,11 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Profile" 
-        component={ProfileScreen} 
+        component={()=><ProfileScreen name={"Nguyen Anh Tuan"} coins={0}/>}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="profile" color="#841584" />
+            <MaterialCommunityIcons name="account" color="#841584" />
           ),
         }}
         />
@@ -37,7 +37,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="settings" color="#841584" />
+            <MaterialCommunityIcons name="cog" color="#841584" />
           ),
         }}
         />
