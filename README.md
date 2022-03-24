@@ -1,1 +1,2 @@
-# App lừa đảo
+# App lừa đảo =)))
+A simple React Native app
